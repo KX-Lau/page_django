@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户列表</title>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>序号</th>
+				<th>用户</th>
+			</tr>
+			</thead>
+
+			<tbody>
+			{% for user in query_set %}
+				<tr>
+					<td>{{ forloop.counter }}</td>
+					<td>{{ user.name }}</td>
+				</tr>
+			{% endfor %}
+
+			</tbody>
+
+		</table>
+	</div>
+
+	<div>
+	{{ page_html|safe }}
+	</div>
+
+</div>
+
+</body>
+</html>
